@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRE Mind - 스마트 망각곡선 학습</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/study.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="logo">GRE Mind</div>
+            <div class="nav-items">
+                <button class="nav-btn active" data-page="dashboard">대시보드</button>
+                <button class="nav-btn" data-page="vocabulary">단어학습</button>
+                <button class="nav-btn" data-page="quiz">복습퀴즈</button>
+                <button class="nav-btn" data-page="stats">통계</button>
+            </div>
+        </nav>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard" class="page active">
+            <div class="dashboard-header">
+                <h1>오늘의 학습</h1>
+                <div class="streak">🔥 연속 학습: <span id="streak-count">1</span>일</div>
+            </div>
+            
+            <div class="study-cards">
+                <div class="study-card new-words">
+                    <h3>새로운 단어</h3>
+                    <div class="count" id="new-words-count">5</div>
+                    <button onclick="startNewWords()">학습 시작</button>
+                </div>
+                
+                <div class="study-card review">
+                    <h3>스마트 복습</h3>
+                    <div class="count" id="review-count">12</div>
+                    <button onclick="startReview()">복습 시작</button>
+                </div>
+                
+                <div class="study-card weak-points">
+                    <h3>취약점 극복</h3>
+                    <div class="count" id="weak-count">3</div>
+                    <button onclick="startWeakPoints()">연습하기</button>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3>학습 진행률</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="overall-progress"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progress-percentage">0%</span> 완료
+                    (<span id="mastered-count">0</span>/<span id="total-words">100</span> 단어)
+                </div>
+            </div>
+        </div>
+
+        <!-- Vocabulary Page -->
+        <div id="vocabulary" class="page">
+            <div class="page-header">
+                <h1>단어 학습</h1>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">전체</button>
+                    <button class="filter-btn" data-filter="new">새로운</button>
+                    <button class="filter-btn" data-filter="learning">학습중</button>
+                    <button class="filter-btn" data-filter="mastered">마스터</button>
+                </div>
+            </div>
+            
+            <div class="word-list" id="word-list">
+                <!-- 단어 목록이 동적으로 생성됩니다 -->
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quiz" class="page">
+            <div class="quiz-container" id="quiz-container">
+                <div class="quiz-header">
+                    <div class="quiz-progress">
+                        <span id="quiz-current">1</span> / <span id="quiz-total">10</span>
+                    </div>
+                    <div class="quiz-timer" id="quiz-timer">30</div>
+                </div>
+                
+                <div class="quiz-content">
+                    <div class="word-card">
+                        <div class="word" id="quiz-word">Loading...</div>
+                        <div class="options" id="quiz-options">
+                            <!-- 선택지가 동적으로 생성됩니다 -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-actions">
+                    <button id="quiz-submit" onclick="submitAnswer()">답안 제출</button>
+                    <button id="quiz-next" onclick="nextQuestion()" style="display:none">다음 문제</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Page -->
+        <div id="stats" class="page">
+            <div class="page-header">
+                <h1>학습 통계</h1>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>전체 정답률</h3>
+                    <div class="stat-value" id="accuracy-rate">87%</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>학습한 단어</h3>
+                    <div class="stat-value" id="total-studied">156</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>마스터한 단어</h3>
+                    <div class="stat-value" id="mastered-words">89</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>학습 시간</h3>
+                    <div class="stat-value" id="study-time">24시간</div>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <h3>망각곡선 시각화</h3>
+                <div class="chart-container" id="forgetting-curve">
+                    <!-- 차트가 그려집니다 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/database.js"></script>
+    <script src="js/forgetting-curve.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/vocabulary.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
