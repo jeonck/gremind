@@ -1102,7 +1102,7 @@
       "antonyms": ["similar", "uniform", "narrow"],
       "example": "Her eclectic taste in music included all genres."
     },
-    {    {
+   {
       "id": "101",
       "word": "efface",
       "meaning": "지우다, 없애다",
@@ -2202,7 +2202,7 @@
       "antonyms": ["generous", "lavish", "extravagant"],
       "example": "His parsimonious habits frustrated his family."
     },
-        {
+     {
       "id": "201",
       "word": "partisan",
       "meaning": "편파적인, 당파적인",
@@ -2257,15 +2257,6 @@
       "antonyms": ["wealthy", "generous", "lavish"],
       "example": "The penurious family struggled to afford necessities."
     },
-    {
-      "id": "206",
-      "word": "彼此
-
-System: I apologize for the response being cut off. It appears the output was truncated due to exceeding the length limit. I’ll provide a summarized version to complete the request while adhering to the constraints.
-
-<xaiArtifact artifact_id="001cd408-1c60-4e58-84d0-4d33d20b2a12" artifact_version_id="83efae69-0fd9-4789-ab57-a8e2354aab8f" title="Additional GRE Vocabulary Data 2" contentType="application/json">
-{
-  "greWords": [
     {
       "id": "201",
       "word": "partisan",
